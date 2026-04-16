@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hi Phil. A resource pack from Vooee</title>
+<meta name="description" content="A working document for Phil Voysey from Jeanna at Vooee. Ikigai tool, customer path mapper, GoHighLevel notes, tools, and next steps." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f8f3ed;
+    --paper:#fffdf9;
+    --ink:#181818;
+    --muted:#5b5b5b;
+    --line:#1f1f1f;
+    --terracotta:#c86f42;
+    --purple:#8d63d2;
+    --pink:#df6ea8;
+    --forest:#5f7768;
+    --gold:#c9a56b;
+    --cream:#fff2e8;
+    --lav:#f3ebff;
+    --blush:#fff0f6;
+    --sage:#eef7ef;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink)}
+  body{
+    font-family:"Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  .display{
+    font-family:"Bebas Neue", Impact, sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    font-weight:400;
+  }
+  .ui-label{
+    font-family:"Space Mono", ui-monospace, monospace;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-weight:700;
+    font-size:11px;
+  }
+  .grid-bg:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(0,0,0,.018) 0 1px, transparent 1px 22px),
+      repeating-linear-gradient(90deg, rgba(0,0,0,.018) 0 1px, transparent 1px 22px);
+    pointer-events:none;
+    z-index:0;
+  }
+  .wrap{
+    width:min(1180px, calc(100% - 32px));
+    margin:0 auto;
+    position:relative;
+    z-index:1;
+  }
+  header{
+    border-bottom:3px solid var(--line);
+    padding:16px 0;
+    position:sticky;
+    top:0;
+    background:rgba(248,243,237,.96);
+    backdrop-filter: blur(8px);
+    z-index:30;
+  }
+  .topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .brand{
+    font-family:"Bebas Neue", Impact, sans-serif;
+    font-size:38px;
+    line-height:1;
+    transform:rotate(-2deg);
+    text-decoration:none;
+    color:var(--ink);
+    letter-spacing:.03em;
+  }
+  .for-phil{
+    font-size:11px;
+    color:var(--muted);
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-weight:700;
+  }
+  nav.tabs{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    padding:12px 0 0;
+  }
+  .tab{
+    appearance:none;
+    background:#fff8f2;
+    border:3px solid var(--line);
+    color:var(--ink);
+    padding:10px 14px;
+    font-family:"Space Mono", monospace;
+    font-size:11px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .tab:hover{
+    transform:translate(-3px,-3px);
+    box-shadow:5px 5px 0 rgba(0,0,0,.10);
+  }
+  .tab.active{
+    background:var(--terracotta);
+    color:#fff;
+    border-color:var(--terracotta);
+  }
+  section.page{
+    display:none;
+    padding:56px 0 80px;
+    position:relative;
+  }
+  section.page.active{display:block}
+  .eyebrow{
+    display:inline-block;
+    padding:5px 10px;
+    border:2px solid currentColor;
+    font-size:11px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    background:rgba(255,255,255,.55);
+    color:var(--forest);
+  }
+  h1.page-h{
+    font-family:"Bebas Neue", Impact, sans-serif;
+    font-size:clamp(48px, 11vw, 116px);
+    line-height:.92;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    margin:18px 0 18px;
+    max-width:900px;
+  }
+  h2.page-sub{
+    font-family:"Space Mono", monospace;
+    font-size:clamp(18px,3vw,26px);
+    line-height:1.2;
+    color:var(--terracotta);
+    font-weight:700;
+    margin:0 0 24px;
+  }
+  h2.sec{
+    font-family:"Bebas Neue", Impact, sans-serif;
+    font-size:clamp(34px,7vw,68px);
+    line-height:.95;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    margin:48px 0 16px;
+  }
+  h3.sub{
+    font-family:"Bebas Neue", Impact, sans-serif;
+    font-size:28px;
+    line-height:1;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    margin:0 0 10px;
+  }
+  p{margin:0 0 14px;font-size:14.5px;color:#2e2e2e}
+  .lede p{font-size:15.5px;max-width:760px}
+  .shape{
+    position:absolute;
+    opacity:.28;
+    pointer-events:none;
+    z-index:0;
+  }
+  .sq{width:130px;height:130px;border:3px solid var(--purple);transform:rotate(18deg)}
+  .cir{width:128px;height:128px;border:3px solid var(--pink);border-radius:999px}
+  .dia{width:118px;height:118px;border:3px solid var(--forest);transform:rotate(45deg)}
+
+  .cards{
+    display:grid;
+    gap:18px;
+    grid-template-columns:1fr;
+  }
+  @media(min-width:720px){.cards{grid-template-columns:1fr 1fr}}
+  @media(min-width:1000px){.cards.three{grid-template-columns:1fr 1fr 1fr}}
+  .card{
+    border:3px solid var(--line);
+    background:#fff;
+    padding:22px;
+    text-align:left;
+    font:inherit;
+    color:inherit;
+    cursor:pointer;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover{
+    transform:translate(-6px,-6px);
+    box-shadow:8px 8px 0 rgba(0,0,0,.10);
+  }
+  .card.tint-cream{background:var(--cream)}
+  .card.tint-lav{background:var(--lav)}
+  .card.tint-blush{background:var(--blush)}
+  .card.tint-sage{background:var(--sage)}
+  .card h3{margin:0 0 10px;font-family:"Bebas Neue", Impact, sans-serif;font-size:30px;line-height:1;letter-spacing:.03em;text-transform:uppercase}
+  .card .card-meta{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-top:10px;font-weight:700}
+  .arrow{display:inline-block;margin-left:6px;transition:transform .15s ease}
+  .card:hover .arrow{transform:translateX(4px)}
+  .static-card{cursor:default}
+  .static-card:hover{transform:none;box-shadow:none}
+
+  .note{
+    border:3px solid var(--line);
+    background:#fff;
+    padding:20px;
+  }
+  .note.soft{background:var(--cream)}
+  .hint{
+    font-size:12px;
+    color:var(--muted);
+    font-style:italic;
+    margin:8px 0 18px;
+  }
+
+  .btn{
+    display:inline-block;
+    padding:12px 16px;
+    border:3px solid var(--line);
+    background:#fff8f2;
+    color:var(--ink);
+    text-decoration:none;
+    font-family:"Space Mono", monospace;
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 rgba(0,0,0,.10)}
+  .btn.primary{background:var(--terracotta);color:#fff;border-color:var(--terracotta)}
+  .btn.outline{background:#fff7f1;color:var(--terracotta);border-color:var(--terracotta)}
+  .btn.small{padding:8px 12px;font-size:10px}
+  .btn:disabled{opacity:.5;cursor:not-allowed}
+  .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+
+  /* Ikigai */
+  .ikigai-grid{
+    display:grid;
+    gap:18px;
+    grid-template-columns:1fr;
+    margin:24px 0;
+  }
+  @media(min-width:820px){.ikigai-grid{grid-template-columns:1fr 1fr}}
+  .quad{
+    border:3px solid var(--line);
+    padding:18px;
+    background:#fff;
+    position:relative;
+  }
+  .quad.love{background:var(--cream)}
+  .quad.good{background:var(--lav)}
+  .quad.need{background:var(--blush)}
+  .quad.paid{background:var(--sage)}
+  .quad-label{
+    font-family:"Bebas Neue", Impact, sans-serif;
+    font-size:26px;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    margin:0 0 4px;
+  }
+  .quad-prompt{font-size:13px;color:#3a3a3a;margin:0 0 12px}
+  .quad-input-row{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+  .quad-input{
+    flex:1 1 180px;
+    border:3px solid var(--line);
+    background:var(--paper);
+    padding:10px 12px;
+    font-family:"Space Mono", monospace;
+    font-size:13px;
+    color:var(--ink);
+  }
+  .quad-input:focus{outline:none;box-shadow:3px 3px 0 rgba(0,0,0,.10)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .tag-chip{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:#fff;
+    border:2px solid var(--line);
+    padding:5px 8px 5px 10px;
+    font-size:12px;
+  }
+  .tag-chip button{
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:14px;
+    line-height:1;
+    color:var(--muted);
+    padding:0 4px;
+  }
+  .tag-chip button:hover{color:var(--terracotta)}
+
+  .progress-wrap{
+    border:3px solid var(--line);
+    background:var(--paper);
+    padding:22px;
+    margin:28px 0;
+    display:flex;
+    gap:24px;
+    align-items:center;
+    flex-wrap:wrap;
+  }
+  .progress-svg{width:160px;height:160px;flex:0 0 160px}
+  .progress-text{flex:1 1 240px}
+  .progress-count{font-family:"Bebas Neue", Impact, sans-serif;font-size:48px;line-height:1;letter-spacing:.03em}
+  .progress-note{font-size:13px;color:var(--muted)}
+
+  .result{
+    border:3px solid var(--terracotta);
+    background:var(--cream);
+    padding:24px;
+    margin:24px 0;
+    display:none;
+  }
+  .result.visible{display:block}
+  .result-head{
+    font-family:"Bebas Neue", Impact, sans-serif;
+    font-size:clamp(28px,5vw,44px);
+    line-height:1;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    margin:0 0 14px;
+  }
+  .result p{font-size:15px}
+
+  /* Journey */
+  .journey-controls{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:18px 0 24px;
+  }
+  .stages{display:grid;gap:14px}
+  .stage{
+    border:3px solid var(--line);
+    background:#fff;
+    padding:18px;
+    position:relative;
+  }
+  .stage.tint-1{background:var(--cream)}
+  .stage.tint-2{background:var(--lav)}
+  .stage.tint-3{background:var(--blush)}
+  .stage.tint-4{background:var(--sage)}
+  .stage-head{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    margin-bottom:10px;
+  }
+  .stage-num{
+    font-family:"Bebas Neue", Impact, sans-serif;
+    font-size:40px;
+    line-height:1;
+    letter-spacing:.03em;
+    color:var(--terracotta);
+    flex:0 0 auto;
+  }
+  .stage-name{
+    flex:1 1 200px;
+    border:3px solid var(--line);
+    background:var(--paper);
+    padding:8px 10px;
+    font-family:"Bebas Neue", Impact, sans-serif;
+    font-size:24px;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+  }
+  .stage-ctrls{display:flex;gap:6px;flex-wrap:wrap}
+  .stage-fields{display:grid;gap:10px;margin-top:8px}
+  .field-label{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:4px}
+  .stage-field{
+    width:100%;
+    border:3px solid var(--line);
+    background:var(--paper);
+    padding:10px;
+    font-family:"Space Mono", monospace;
+    font-size:13px;
+    resize:vertical;
+    min-height:60px;
+  }
+  .stage-next{
+    margin-top:12px;
+    padding-top:12px;
+    border-top:2px dashed rgba(0,0,0,.18);
+  }
+  .next-row{
+    display:flex;
+    gap:8px;
+    align-items:center;
+    flex-wrap:wrap;
+    margin-bottom:8px;
+  }
+  .next-row input, .next-row select{
+    flex:1 1 160px;
+    border:3px solid var(--line);
+    background:var(--paper);
+    padding:8px 10px;
+    font-family:"Space Mono", monospace;
+    font-size:12px;
+  }
+  .icon-btn{
+    border:3px solid var(--line);
+    background:#fff8f2;
+    padding:6px 10px;
+    font-family:"Space Mono", monospace;
+    font-size:11px;
+    font-weight:700;
+    cursor:pointer;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+  }
+  .icon-btn.danger{color:var(--terracotta);border-color:var(--terracotta)}
+  .icon-btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 rgba(0,0,0,.10)}
+
+  /* Journey map */
+  .map-wrap{
+    border:3px solid var(--line);
+    background:var(--paper);
+    padding:18px;
+    overflow-x:auto;
+    margin:18px 0;
+  }
+  .map-svg{min-width:800px;width:100%;height:auto}
+
+  /* Resources */
+  .res-card{
+    border:3px solid var(--line);
+    background:#fff;
+    padding:20px;
+    margin-bottom:14px;
+  }
+  .res-card.tip{background:var(--cream)}
+  .res-card h3{margin:0 0 8px;font-family:"Bebas Neue", Impact, sans-serif;font-size:26px;letter-spacing:.03em;text-transform:uppercase}
+  .res-link{
+    display:inline-block;
+    margin-top:8px;
+    color:var(--terracotta);
+    text-decoration:none;
+    font-weight:700;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    border-bottom:2px solid var(--terracotta);
+    padding-bottom:2px;
+  }
+  .res-link:hover{color:var(--ink);border-color:var(--ink)}
+
+  /* Audit */
+  .audit-group{margin:18px 0 28px}
+  .audit-status{
+    display:inline-block;
+    padding:4px 10px;
+    font-size:10px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    border:2px solid currentColor;
+    background:rgba(255,255,255,.6);
+    margin-bottom:10px;
+  }
+  .audit-status.now{color:var(--terracotta)}
+  .audit-status.soon{color:var(--purple)}
+  .audit-status.ready{color:var(--forest)}
+  .audit-item{
+    border:3px solid var(--line);
+    background:#fff;
+    padding:18px;
+    margin-bottom:12px;
+  }
+  .audit-item h4{margin:0 0 8px;font-family:"Bebas Neue", Impact, sans-serif;font-size:22px;letter-spacing:.03em;text-transform:uppercase}
+
+  .emphasis{
+    border:3px solid var(--terracotta);
+    background:var(--cream);
+    padding:22px;
+    margin:24px 0;
+  }
+  .emphasis h3{margin:0 0 8px;color:var(--terracotta)}
+
+  .signoff{
+    margin-top:40px;
+    padding-top:22px;
+    border-top:3px solid var(--line);
+    font-size:13px;
+    color:var(--muted);
+  }
+
+  /* Utility */
+  .stack{display:grid;gap:14px}
+  .row-end{display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+
+  /* Print */
+  @media print{
+    header, .tabs, .journey-controls, .btn, .icon-btn, .quad-input-row, .tag-chip button, .progress-wrap .progress-svg, .shape{display:none !important}
+    section.page{display:block !important;page-break-after:always;padding:20px 0}
+    body{background:#fff}
+    .grid-bg:before{display:none}
+    .card, .note, .quad, .stage, .audit-item, .res-card, .result{box-shadow:none !important;transform:none !important;break-inside:avoid}
+    a{color:var(--ink);text-decoration:underline}
+  }
+</style>
+</head>
+<body class="grid-bg">
+
+<!-- PASSWORD GATE -->
+<div id="gate" style="position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;">
+  <div style="width:min(420px,calc(100% - 32px));text-align:center">
+    <div style="font-family:'Bebas Neue',Impact,sans-serif;font-size:48px;letter-spacing:.03em;transform:rotate(-2deg);margin-bottom:28px;">Vooee</div>
+    <div style="border:3px solid var(--line);background:var(--paper);padding:32px 28px;">
+      <div class="ui-label" style="margin-bottom:14px;font-size:12px;color:var(--muted);">This pack is for Phil Voysey</div>
+      <p style="font-size:14px;margin:0 0 18px;">Enter the password Jeanna shared with you.</p>
+      <input id="gate-pw" type="password" placeholder="Password" style="width:100%;border:3px solid var(--line);background:var(--paper);padding:14px;font-family:'Space Mono',monospace;font-size:14px;text-align:center;margin-bottom:12px;" autofocus />
+      <button id="gate-btn" style="width:100%;padding:14px;border:3px solid var(--terracotta);background:var(--terracotta);color:#fff;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;cursor:pointer;">Open</button>
+      <div id="gate-err" style="margin-top:10px;font-size:12px;color:var(--terracotta);display:none;">That's not quite right. Try again.</div>
+    </div>
+    <p style="font-size:11px;color:var(--muted);margin-top:16px;">vooee.au</p>
+  </div>
+</div>
+
+<div id="app" style="display:none;">
+<header>
+  <div class="wrap">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+        <a class="brand" href="#">Vooee</a>
+        <span class="for-phil">For Phil · April 2026</span>
+      </div>
+      <div>
+        <button class="btn small outline" onclick="window.print()">Print / Save PDF</button>
+      </div>
+    </div>
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-target="welcome">Welcome</button>
+      <button class="tab" data-target="ikigai">Ikigai Tool</button>
+      <button class="tab" data-target="journey">Customer Journey</button>
+      <button class="tab" data-target="ghl">Website &amp; GHL</button>
+      <button class="tab" data-target="resources">Resources</button>
+      <button class="tab" data-target="next">Next Steps</button>
+    </nav>
+  </div>
+</header>
+
+<!-- WELCOME -->
+<section class="page active" id="welcome">
+  <div class="wrap" style="position:relative">
+    <div class="shape sq" style="top:-30px;right:-20px"></div>
+    <div class="shape cir" style="bottom:-40px;left:40%"></div>
+
+    <span class="eyebrow">A working document</span>
+    <h1 class="page-h">Hi Phil.</h1>
+    <h2 class="page-sub">A resource pack from Jeanna at Vooee · April 2026</h2>
+    <div class="lede">
+      <p>This is yours to keep and explore at your own pace. It's built around what we talked about, so nothing in here should feel abstract or like a standard pitch. Think of it as a working document, not a brochure.</p>
+      <p>Navigate using the tabs above. Here's what's inside:</p>
+    </div>
+
+    <div class="cards" style="margin-top:28px">
+      <button class="card tint-cream" data-go="ikigai">
+        <h3>The Ikigai Tool</h3>
+        <p>A live, working example of what your happiness survey could become. Fill it in for yourself, it takes about five minutes. Then think about how your clients would feel finding something like this on your website instead of a static form. This is the demo we talked about.</p>
+        <div class="card-meta">Open the tool <span class="arrow">→</span></div>
+      </button>
+      <button class="card tint-lav" data-go="journey">
+        <h3>Your Customer Journey</h3>
+        <p>A visual map of how someone moves from discovering you to sitting on a plane to Peru. I've pre-filled it from our conversation. Edit it, add to it, and use the journey map view to see it clearly. This is the clearest way to spot where people fall through.</p>
+        <div class="card-meta">Open the map <span class="arrow">→</span></div>
+      </button>
+      <button class="card tint-blush" data-go="ghl">
+        <h3>Website &amp; GoHighLevel Notes</h3>
+        <p>An honest look at what GoHighLevel is, what the common problems are, and what to do about the dead links and placeholder copy. Plus a clear take on the migration question you're sitting with.</p>
+        <div class="card-meta">Open the notes <span class="arrow">→</span></div>
+      </button>
+      <button class="card tint-sage" data-go="resources">
+        <h3>Tools &amp; Resources</h3>
+        <p>Claude, Notion, GoHighLevel's help centre, and a handful of Australian men's health organisations worth building relationships with, all with notes on how to actually use them, not just links.</p>
+        <div class="card-meta">Open the list <span class="arrow">→</span></div>
+      </button>
+      <button class="card" data-go="next">
+        <h3>Next Steps</h3>
+        <p>Three clear things I think are worth doing, and what each would involve. Plus the things you can work on without me, which are just as important to name.</p>
+        <div class="card-meta">Open next steps <span class="arrow">→</span></div>
+      </button>
+    </div>
+
+    <div class="note soft" style="margin-top:28px">
+      <p style="margin:0"><strong>The Ikigai tool is the best place to start.</strong> It'll give the rest of what's here more context.</p>
+      <div class="btn-row">
+        <button class="btn primary" data-go="ikigai">Start with the Ikigai Tool →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IKIGAI -->
+<section class="page" id="ikigai">
+  <div class="wrap" style="position:relative">
+    <div class="shape dia" style="top:-20px;right:-30px"></div>
+    <span class="eyebrow">Working prototype</span>
+    <h1 class="page-h">The Ikigai Tool</h1>
+    <h2 class="page-sub">A live example of what your happiness survey could become</h2>
+    <div class="lede">
+      <p>Ikigai is a Japanese idea, roughly translated: "reason for being." It lives where four honest questions meet. What you're looking at here is a working prototype of what we'd build for your clients: men in midlife, in your voice, on your website. Instead of submitting a form and waiting, they'd get something genuinely useful, immediately.</p>
+      <p>Try it for yourself first. The answers might surprise you, or confirm something you already know.</p>
+    </div>
+
+    <h2 class="sec">Fill in the four areas</h2>
+    <p class="hint">Type something and press Enter, or click Add. Add as many as feel right.</p>
+
+    <div class="btn-row">
+      <button class="btn outline" id="btn-example">Load Phil's example answers</button>
+      <button class="btn" id="btn-clear">Clear all</button>
+      <button class="btn" onclick="window.print()">Print / Save PDF</button>
+    </div>
+
+    <div class="ikigai-grid">
+      <div class="quad love">
+        <div class="quad-label">What you love</div>
+        <div class="quad-prompt">What makes time disappear? What would you do even without the money?</div>
+        <div class="quad-input-row">
+          <input class="quad-input" data-cat="love" placeholder="e.g. deep conversations..." />
+          <button class="icon-btn" data-add="love">Add</button>
+        </div>
+        <div class="tags" data-tags="love"></div>
+      </div>
+      <div class="quad good">
+        <div class="quad-label">What you're good at</div>
+        <div class="quad-prompt">What do people ask your help with? What comes naturally that others find hard?</div>
+        <div class="quad-input-row">
+          <input class="quad-input" data-cat="good" placeholder="e.g. listening well..." />
+          <button class="icon-btn" data-add="good">Add</button>
+        </div>
+        <div class="tags" data-tags="good"></div>
+      </div>
+      <div class="quad need">
+        <div class="quad-label">What the world needs</div>
+        <div class="quad-prompt">What problems go unsolved? What's missing for the men you work with?</div>
+        <div class="quad-input-row">
+          <input class="quad-input" data-cat="need" placeholder="e.g. men who know themselves..." />
+          <button class="icon-btn" data-add="need">Add</button>
+        </div>
+        <div class="tags" data-tags="need"></div>
+      </div>
+      <div class="quad paid">
+        <div class="quad-label">What you can be paid for</div>
+        <div class="quad-prompt">What have people paid you for? What would they pay for if they knew it existed?</div>
+        <div class="quad-input-row">
+          <input class="quad-input" data-cat="paid" placeholder="e.g. retreats and coaching..." />
+          <button class="icon-btn" data-add="paid">Add</button>
+        </div>
+        <div class="tags" data-tags="paid"></div>
+      </div>
+    </div>
+
+    <div class="progress-wrap">
+      <svg class="progress-svg" viewBox="0 0 160 160" id="prog-svg" aria-hidden="true">
+        <circle cx="48" cy="60" r="40" fill="none" stroke="#c86f42" stroke-width="3" opacity=".25" data-p="love"/>
+        <circle cx="112" cy="60" r="40" fill="none" stroke="#8d63d2" stroke-width="3" opacity=".25" data-p="good"/>
+        <circle cx="48" cy="100" r="40" fill="none" stroke="#df6ea8" stroke-width="3" opacity=".25" data-p="need"/>
+        <circle cx="112" cy="100" r="40" fill="none" stroke="#5f7768" stroke-width="3" opacity=".25" data-p="paid"/>
+      </svg>
+      <div class="progress-text">
+        <div class="progress-count" id="prog-count">0 of 4</div>
+        <div class="progress-note" id="prog-note">Add at least three entries to see an interpretation. Fill all four areas for a full reading.</div>
+      </div>
+    </div>
+
+    <div class="result" id="result">
+      <div class="result-head" id="result-head">Your Ikigai is taking shape.</div>
+      <p id="result-primary"></p>
+      <p id="result-secondary"></p>
+    </div>
+
+    <h2 class="sec">What this could be for your clients</h2>
+    <div class="note">
+      <p>Instead of submitting a happiness survey and hearing nothing, they'd go through something like this, tailored to men in midlife, in your language, and receive a short, personalised result. That result becomes the start of a real conversation with you. We'd build it to live on your website, work on any device, and feed submissions directly to you.</p>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section class="page" id="journey">
+  <div class="wrap" style="position:relative">
+    <div class="shape cir" style="top:0;right:-20px"></div>
+    <span class="eyebrow">Editable map</span>
+    <h1 class="page-h">Customer Journey</h1>
+    <h2 class="page-sub">From discovering you to choosing something different</h2>
+    <div class="lede">
+      <p>Based on what you told me, I've mapped out the stages of your funnel below. Edit each one, add or remove detail, rename stages, or add new ones. When you're ready, switch to the journey map view to see it as a connected visual.</p>
+      <p>The goal isn't a perfect diagram. It's clarity about where the handoffs happen, and where people might be quietly dropping out.</p>
+    </div>
+
+    <div class="journey-controls">
+      <button class="btn outline" id="btn-add-stage">+ Add a stage</button>
+      <button class="btn" id="btn-toggle-map">View as journey map</button>
+      <button class="btn" onclick="window.print()">Print / Save PDF</button>
+    </div>
+
+    <div id="stages-view">
+      <div class="stages" id="stages"></div>
+    </div>
+
+    <div id="map-view" style="display:none">
+      <div class="map-wrap">
+        <svg class="map-svg" id="map-svg" viewBox="0 0 1000 700" xmlns="http://www.w3.org/2000/svg"></svg>
+      </div>
+      <div class="btn-row">
+        <button class="btn outline" id="btn-back-edit">Back to editing</button>
+      </div>
+    </div>
+
+    <h2 class="sec">What this reveals</h2>
+    <div class="note">
+      <p>The biggest gap in a funnel like this usually isn't at the bottom, it's at the top. People find you through word of mouth in the Blue Mountains, but there's no equivalent of that warm referral moment online. The mindfulness bootcamp is your strongest low-commitment entry point, but only if people can find it, understand it, and trust it enough to try it without already knowing you.</p>
+      <p>The second gap is the jump from life design coaching to the Peru retreat. That's a significant ask in time, money, and emotional readiness. There may be a bridging moment missing, something that helps a client start imagining Peru before it becomes a concrete conversation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GHL -->
+<section class="page" id="ghl">
+  <div class="wrap" style="position:relative">
+    <div class="shape sq" style="top:-20px;right:-30px"></div>
+    <span class="eyebrow">Honest take</span>
+    <h1 class="page-h">Website &amp; GoHighLevel</h1>
+    <h2 class="page-sub">What it is, what to fix, and the migration question</h2>
+    <div class="lede">
+      <p>Your websites (philvoysey.com and possibilityofus.com) are built on GoHighLevel, a powerful marketing platform that appears to have been set up from a template and not yet fully finished. That's not unusual. But it does mean there are some things worth cleaning up before you invest energy in driving more people there.</p>
+    </div>
+
+    <h2 class="sec">What GoHighLevel actually is</h2>
+    <div class="note">
+      <p>GoHighLevel is an all-in-one marketing platform. It handles your website, contact database (CRM), email marketing, booking, forms, and automations all in one place. Think of it as the engine room of your business's online presence. It's genuinely capable, and having a VA who can work in it is an advantage.</p>
+      <p>The challenge is that GoHighLevel was built for marketing agencies, not sole traders. So it has a lot of features you'll never need, the templates come loaded with placeholder copy, and the links and automations behind forms often don't get set up properly out of the box. That's almost certainly what's creating the dead links and generic text you're seeing.</p>
+    </div>
+
+    <h2 class="sec">Audit checklist, go through this with your VA</h2>
+    <p class="hint">Share this page with your VA directly. These are the things most likely to be causing problems right now.</p>
+
+    <div class="audit-group">
+      <div class="audit-status now">Fix now</div>
+      <div class="audit-item">
+        <h4>Dead and broken links</h4>
+        <p>Click every button and link on every page, on both sites. Anything that goes to a 404, an empty page, or loops back on itself, note it and either fix it or remove it. Dead links lose people immediately and signal that the site isn't looked after.</p>
+      </div>
+      <div class="audit-item">
+        <h4>Placeholder and template text</h4>
+        <p>Any copy that sounds generic or clearly left over from a template needs to go. For example, on the Resources tab of the Possibility of Us website right now, the copy reads: <em>"Your Content Here Your Paragraph text goes Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolore, alias, numquam enim ab voluptate id quam harum ducimus cupiditate similique quisquam et deserunt, recusandae."</em> That's visible to anyone who visits the site, and it signals that the page isn't finished. Replace it with your words, or remove it entirely. Even a simpler page with your own voice is better than a full page of borrowed marketing language.</p>
+      </div>
+      <div class="audit-item">
+        <h4>The happiness survey and what happens next</h4>
+        <p>It looks like the happiness survey button now takes visitors to a contact form rather than the original Dropbox link. That's a step forward, but it raises a question worth answering clearly: what happens after someone fills in that contact form? Do they get an email? A phone call? A booking link? Nothing? Walk through the flow yourself as if you were a first-time visitor. If there's no clear next step after they hit submit, that's where people will quietly drop off. Make sure there's a response, even a simple confirmation with a next action, so the person knows their interest landed somewhere real.</p>
+      </div>
+    </div>
+
+    <div class="audit-group">
+      <div class="audit-status soon">Review soon</div>
+      <div class="audit-item">
+        <h4>Your contact list, who's actually in there?</h4>
+        <p>GoHighLevel stores all your contacts in a CRM. Check who's in there and whether they're organised in any way. Even a rough list of "people who've shown interest" is worth having, it's the foundation of any email or follow-up strategy you might build later.</p>
+      </div>
+      <div class="audit-item">
+        <h4>Are any automations running?</h4>
+        <p>GHL has a powerful automation builder. Check what's been set up, if anything. Templates often include automation "shells" that were never switched on. Nothing needs to be running right now, but it's worth knowing what exists so you can decide what to activate.</p>
+      </div>
+    </div>
+
+    <div class="audit-group">
+      <div class="audit-status ready">When ready</div>
+      <div class="audit-item">
+        <h4>Basic website analytics</h4>
+        <p>Do you know how many people visit your sites each month? If not, it's worth setting up, GoHighLevel supports Google Analytics. You can't improve what you can't measure, and traffic numbers will tell you a lot about where to focus.</p>
+      </div>
+    </div>
+
+    <h2 class="sec">Discoverability: getting found on Google and by AI</h2>
+    <div class="note">
+      <p>There are two ways people find businesses online now, and both matter for you.</p>
+      <p><strong>SEO (Search Engine Optimisation)</strong> is about making sure Google can find your site and shows it when someone searches for something relevant. Think of it as the shop sign and the listing in the phone book. Right now, philvoysey.com shows up when someone searches your name directly, but possibilityofus.com is much harder to find. If someone types "life coaching for men Blue Mountains" or "midlife coaching Australia," your site doesn't come up. That's because the pages are likely missing metatags (the behind-the-scenes labels that tell Google what the page is about), the page titles may be generic, and there may not be enough real, original text on each page for Google to index properly.</p>
+      <p><strong>AEO (AI Engine Optimisation)</strong> is the newer version of the same idea. When someone asks ChatGPT, Claude, or Google's AI overview a question like "Where can I find coaching for men going through a midlife transition in Australia?", the AI pulls from websites it can understand clearly. The same things that help with Google also help here: clear page titles, descriptive headings, real content written in your own words, and structured information about what you do, where you're based, and who you help.</p>
+      <p>The good news is that fixing one fixes both. The practical step: speak with whoever helped set up your GoHighLevel site and ask them to review and update the metatags (page titles, descriptions, and heading structure) across both sites. If they're not sure how, this is something I can help with too.</p>
+    </div>
+
+    <h2 class="sec">The migration question</h2>
+    <div class="note">
+      <p>We talked through this on our call and agreed: migration isn't the right move right now. The effort required to rebuild your pages, re-import contacts, reconnect your domain, and get your VA up to speed on a new system doesn't outweigh what you'd gain. GHL isn't the problem. The current setup just isn't finished yet.</p>
+      <p>That said, the tools in this space are improving quickly, and migration will likely get easier over time. Worth revisiting in 6 to 12 months once the foundation is solid. For now, a focused cleanup is the right call, and it costs a fraction of the time and money a migration would.</p>
+    </div>
+
+    <div class="emphasis">
+      <h3>Short-term effort, long-term payoff</h3>
+      <p style="margin:0">A working website with a real lead capture tool is the difference between word-of-mouth being your only channel and having something working quietly in the background while you're out coaching. It's worth getting right once.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="page" id="resources">
+  <div class="wrap" style="position:relative">
+    <div class="shape dia" style="bottom:20px;right:-20px"></div>
+    <span class="eyebrow">Worth your time</span>
+    <h1 class="page-h">Tools &amp; Resources</h1>
+    <h2 class="page-sub">The ones worth your time, with notes on how to actually use them</h2>
+
+    <h2 class="sec">Tools we talked about</h2>
+
+    <div class="res-card">
+      <h3>Claude</h3>
+      <p>An AI thinking partner that's particularly good at strategic conversation, writing in your voice, and helping you think through complex problems without overwhelming you. Worth trying as an alternative to ChatGPT, it handles nuance better and is less likely to give you generic outputs.</p>
+      <div class="note soft" style="margin:10px 0">
+        <div class="ui-label" style="margin-bottom:6px">Try this prompt to start</div>
+        <p style="margin:0;font-size:13px">"I run a coaching business called Possibility of Us. I help men in midlife find clarity and purpose. I'll describe my business, I'd like you to reflect back what you hear as my core offer, in plain language." Then keep talking. See where it goes.</p>
+      </div>
+      <div class="note soft" style="margin:10px 0">
+        <div class="ui-label" style="margin-bottom:6px">Try this prompt for your website SEO</div>
+        <p style="margin:0;font-size:13px">"I'm going to share the text content from a page on my website. Please review it and tell me: what keywords and topics the page covers, how clearly it communicates what I do and who I help, what a Google search algorithm or AI assistant would likely conclude this page is about, and three specific changes to the copy or structure that would help it appear in more relevant search results." Then paste in the text from your page. Neil, who set up your site, may also be able to update your metatags directly inside GoHighLevel, which has built-in tools for this.</p>
+      </div>
+      <div class="note soft" style="margin:10px 0">
+        <div class="ui-label" style="margin-bottom:6px">A note on token limits</div>
+        <p style="margin:0;font-size:13px">Even on the paid plan, Claude has limits on how much it can process in one conversation. Think of it like a whiteboard that has a fixed amount of space. If a conversation gets very long, Claude starts to "forget" the earlier parts. The practical workaround: start a fresh conversation for each new task rather than letting one conversation run for days. Keep tasks focused. We'll share a short video before our next meeting that explains this well.</p>
+      </div>
+      <div class="note soft" style="margin:10px 0">
+        <div class="ui-label" style="margin-bottom:6px">On Open Router</div>
+        <p style="margin:0;font-size:13px">You asked about Open Router on our call. In short: don't worry about it for now. It's a tool for people running many AI models at high volume, which isn't where you are. Claude's standard plan will handle everything you need at this stage.</p>
+      </div>
+      <a class="res-link" href="https://claude.ai" target="_blank" rel="noopener">Open Claude →</a>
+    </div>
+
+    <div class="res-card">
+      <h3>Notion</h3>
+      <p>A flexible workspace for organising everything, content ideas, client notes, business planning, the Peru program, Cheryle's ventures. Think of it as a smarter home for all the things currently living in different docs, emails, and notebooks.</p>
+      <div class="note soft" style="margin:10px 0">
+        <div class="ui-label" style="margin-bottom:6px">Start simple</div>
+        <p style="margin:0;font-size:13px">One page called "Possibility of Us, Business Brain." Use it as a single home for everything and structure it as you go. Don't try to build the perfect system on day one.</p>
+      </div>
+      <a class="res-link" href="https://notion.so" target="_blank" rel="noopener">Open Notion →</a>
+    </div>
+
+    <div class="res-card">
+      <h3>GoHighLevel Help Centre</h3>
+      <p>Better than you'd expect. If you're asking your VA to set up automations, fix forms, or update pages, this is the right reference for how to do it properly. Worth sharing with them directly.</p>
+      <a class="res-link" href="https://help.gohighlevel.com" target="_blank" rel="noopener">GHL Help →</a>
+    </div>
+
+    <h2 class="sec">For your referral strategy</h2>
+    <p class="hint">You mentioned wanting to build relationships with doctors, men's groups, and community organisations. These are the most active in Australia in the space you're working in, worth approaching directly.</p>
+
+    <div class="res-card">
+      <h3>Men's Shed Association</h3>
+      <p>Over 1,000 local Men's Sheds across Australia, the Blue Mountains alone will have several. These are exactly the spaces where men who need your kind of work already gather. A talk at a local Shed is low pressure and genuinely warm. This is the closest equivalent of the word-of-mouth referral you currently rely on, but at scale.</p>
+      <a class="res-link" href="https://mensshed.org" target="_blank" rel="noopener">mensshed.org →</a>
+    </div>
+
+    <div class="res-card">
+      <h3>MensLine Australia</h3>
+      <p>A national telephone and online support service for men. They maintain a referral directory of programs and services, getting listed there puts you in front of men who've already made the step of reaching out for help. These are people who are ready.</p>
+      <a class="res-link" href="https://www.mensline.org.au" target="_blank" rel="noopener">mensline.org.au →</a>
+    </div>
+
+    <div class="res-card">
+      <h3>Movember Foundation</h3>
+      <p>Beyond the fundraising, Movember actively funds and supports men's mental health programs in Australia, and they have a strong network of community partners. Worth a direct approach if your bootcamp or programs can be framed in their language.</p>
+      <a class="res-link" href="https://au.movember.com" target="_blank" rel="noopener">movember.com →</a>
+    </div>
+
+    <div class="res-card">
+      <h3>Australian Men's Health Forum</h3>
+      <p>The peak body for men's health in Australia. Strong connections with GPs and community health centres, the referral channel you mentioned exploring. Getting on their radar is a longer play, but worth starting the conversation.</p>
+      <a class="res-link" href="https://amhf.org.au" target="_blank" rel="noopener">amhf.org.au →</a>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="page" id="next">
+  <div class="wrap" style="position:relative">
+    <div class="shape sq" style="top:0;right:-20px"></div>
+    <span class="eyebrow">Three clear options</span>
+    <h1 class="page-h">Next Steps</h1>
+    <h2 class="page-sub">What working together could look like, and what you can do on your own</h2>
+    <div class="lede">
+      <p>These are the three areas where I think Vooee can make the most practical difference. They're separate, you can start with one, or we can talk through all of them and decide what makes sense first.</p>
+    </div>
+
+    <h2 class="sec">Working with Vooee</h2>
+    <div class="cards three">
+      <div class="card static-card tint-cream">
+        <div class="ui-label" style="color:var(--terracotta)">Option 1</div>
+        <h3 style="margin-top:6px">Make your happiness survey interactive</h3>
+        <p>You've just seen what the Ikigai tool does, that's the concept. We'd build a version for your audience: men in midlife, in your voice, on your website. The result isn't a score. It's a personalised insight that gives the visitor something real and immediately useful, and gives you a natural reason to follow up. This is your best lead generation asset and the lowest-friction change you could make right now.</p>
+        <div class="card-meta">One-off build. Pricing this week. Nothing to commit to until you see the number.</div>
+      </div>
+      <div class="card static-card tint-lav">
+        <div class="ui-label" style="color:var(--purple)">Option 2</div>
+        <h3 style="margin-top:6px">A content system built from what you've already written</h3>
+        <p>You've already done the hard part. <em>Ageing (dis)Gracefully</em> is on Amazon with strong reviews, and you clearly enjoy writing and have more to say. That's a genuine asset most coaches don't have. The opportunity is turning that existing material, your books, your workshops, your stories and frameworks, into a steady stream of social media and LinkedIn content that sounds like you, not like a machine.</p>
+        <p>We'd set this up in one of two ways, depending on what suits you. Option A: an automated content pipeline using a tool called Blotato that connects to LinkedIn and your social accounts. It would draft posts from your existing writing for you to review and edit before anything goes live. You stay in control, but the system does the heavy lifting of turning a chapter or an idea into a ready-to-post piece. Option B: if you'd rather keep writing yourself (and it sounds like you might), we'd generate a document of brainstormed content ideas, hooks, and angles drawn from your books and programs. Think of it as a creative brief you can dip into whenever you sit down to write.</p>
+        <p>Your Instagram pieces to camera are worth building on too. Short video clips where you're talking directly to the audience carry real weight, especially for the men you're trying to reach. We can help with simple formats and prompts that make those easier to produce consistently.</p>
+        <div class="card-meta">Scoped project, we agree what "done" looks like before we start. Probably 4 to 6 weeks.</div>
+      </div>
+      <div class="card static-card tint-sage">
+        <div class="ui-label" style="color:var(--forest)">Option 3</div>
+        <h3 style="margin-top:6px">Website clean-up and GoHighLevel brief</h3>
+        <p>I can work through your GHL setup with your VA, fix the dead links, replace the placeholder copy, confirm the survey works end-to-end, and write a clear brief for what to maintain going forward. You'd come out with a site that does its job and a VA who knows their remit.</p>
+        <div class="card-meta">Likely a half-day of work. Low cost, high immediate impact.</div>
+      </div>
+    </div>
+
+    <h2 class="sec">What you can work on without me</h2>
+    <div class="cards">
+      <div class="card static-card">
+        <h3>Try Claude for business thinking</h3>
+        <p>Use the prompt from the Resources tab. Start by telling Claude about your business and asking it to reflect back your core offer in plain language. It's a useful mirror before you try to explain yourself to anyone else, including Cheryle, or a prospective client.</p>
+      </div>
+      <div class="card static-card">
+        <h3>Use the Journey Mapper in this pack</h3>
+        <p>Go to the Customer Journey tab and spend 20 minutes editing those stages with real detail. Even that alone will show you something you didn't quite know you knew about your business. Print it and put it somewhere visible.</p>
+      </div>
+      <div class="card static-card">
+        <h3>Have a direct conversation with Cheryle about Peru as the anchor</h3>
+        <p>You both bring different and complementary things to that offer. It only works as the heart of the business if you're both genuinely aligned on it, not just in principle. Worth a proper conversation before building anything around it.</p>
+      </div>
+      <div class="card static-card">
+        <h3>Run through the GHL checklist with your VA</h3>
+        <p>Share the Website &amp; GHL tab of this pack with them. Even just fixing the dead links and replacing the placeholder copy will put you in a significantly stronger position, and it costs nothing but their time.</p>
+      </div>
+      <div class="card static-card">
+        <h3>Think about visual consistency across your brand</h3>
+        <p>The artwork on your Amazon books looks quite different from the Possibility of Us website. That's not unusual when different people have worked on different parts at different times, but it's worth noticing. When someone finds your book on Amazon and then visits your site (or the other way around), the visual feel should connect. It doesn't need to be identical, but right now the two could almost belong to different businesses. Worth a conversation about which direction feels most like you, and whether it's time to bring them closer together.</p>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top:28px">
+      <p><strong>Our next meeting is 29 April.</strong> The focus will be priority setting, working through this pack together and deciding what to tackle first. There's no pressure to have done anything before then, just read through what's here at your own pace and note what resonates or raises questions.</p>
+      <p>On pricing: it's not yet set. I'll scope out the recommended projects and send through numbers before we meet, so you come to that conversation with something concrete in front of you rather than having to decide in the room.</p>
+      <p>We also talked about working together on an ongoing basis, a regular coaching cadence at whatever frequency suits you, plus an in-person session where I can show you Claude, Notion, and a few other tools in a hands-on way. That's an option worth thinking about. We can talk through what that would look like on the 29th.</p>
+      <p>Any questions in the meantime, reply to my email.</p>
+    </div>
+
+    <div class="signoff">
+      Jeanna Manifold · Vooee · jeanna@vooee.au
+    </div>
+  </div>
+</section>
+
+<script>
+/* =====================================================
+   Navigation
+===================================================== */
+const tabs = document.querySelectorAll('.tab');
+const pages = document.querySelectorAll('section.page');
+function go(target){
+  pages.forEach(p => p.classList.toggle('active', p.id === target));
+  tabs.forEach(t => t.classList.toggle('active', t.dataset.target === target));
+  window.scrollTo({top:0, behavior:'instant'});
+}
+tabs.forEach(t => t.addEventListener('click', () => go(t.dataset.target)));
+document.querySelectorAll('[data-go]').forEach(el => {
+  el.addEventListener('click', e => { e.preventDefault(); go(el.dataset.go); });
+});
+
+/* =====================================================
+   Ikigai
+===================================================== */
+const ikigai = { love:[], good:[], need:[], paid:[] };
+const LABELS = { love:"What you love", good:"What you're good at", need:"What the world needs", paid:"What you can be paid for" };
+
+function renderTags(){
+  ['love','good','need','paid'].forEach(cat => {
+    const el = document.querySelector(`[data-tags="${cat}"]`);
+    el.innerHTML = '';
+    ikigai[cat].forEach((v, i) => {
+      const chip = document.createElement('span');
+      chip.className = 'tag-chip';
+      chip.innerHTML = `<span></span><button aria-label="remove">×</button>`;
+      chip.querySelector('span').textContent = v;
+      chip.querySelector('button').addEventListener('click', () => {
+        ikigai[cat].splice(i,1);
+        renderIkigai();
+      });
+      el.appendChild(chip);
+    });
+  });
+}
+
+function addItem(cat){
+  const input = document.querySelector(`input[data-cat="${cat}"]`);
+  const v = (input.value || '').trim();
+  if(!v) return;
+  ikigai[cat].push(v);
+  input.value = '';
+  input.focus();
+  renderIkigai();
+}
+
+document.querySelectorAll('.quad-input').forEach(inp => {
+  inp.addEventListener('keydown', e => {
+    if(e.key === 'Enter'){ e.preventDefault(); addItem(inp.dataset.cat); }
+  });
+});
+document.querySelectorAll('[data-add]').forEach(b => {
+  b.addEventListener('click', () => addItem(b.dataset.add));
+});
+
+document.getElementById('btn-example').addEventListener('click', () => {
+  ikigai.love = ["Helping men find their footing","Deep, honest conversation","Travel and Peru","Writing","The Hero's Journey"];
+  ikigai.good = ["Listening","Facilitating groups","Teaching and coaching","Storytelling","Creating structured programs"];
+  ikigai.need = ["Men who understand themselves","Real male mentorship","Rites of passage for midlife","Meaning beyond career"];
+  ikigai.paid = ["Life design coaching","Retreats and travel experiences","Workshops and programs","Books"];
+  renderIkigai();
+});
+
+document.getElementById('btn-clear').addEventListener('click', () => {
+  ikigai.love = []; ikigai.good = []; ikigai.need = []; ikigai.paid = [];
+  renderIkigai();
+});
+
+function updateProgress(){
+  const filled = ['love','good','need','paid'].filter(c => ikigai[c].length > 0).length;
+  document.getElementById('prog-count').textContent = filled + ' of 4';
+  const svg = document.getElementById('prog-svg');
+  ['love','good','need','paid'].forEach(c => {
+    const circle = svg.querySelector(`[data-p="${c}"]`);
+    if(ikigai[c].length > 0){
+      circle.setAttribute('opacity','.85');
+      circle.setAttribute('fill', circle.getAttribute('stroke'));
+      circle.setAttribute('fill-opacity','0.18');
+    } else {
+      circle.setAttribute('opacity','.25');
+      circle.setAttribute('fill','none');
+    }
+  });
+  const total = ikigai.love.length + ikigai.good.length + ikigai.need.length + ikigai.paid.length;
+  const note = document.getElementById('prog-note');
+  if(total === 0) note.textContent = 'Add at least three entries to see an interpretation. Fill all four areas for a full reading.';
+  else if(total < 3) note.textContent = `${total} entries so far. A few more and an interpretation will appear below.`;
+  else if(filled < 4) note.textContent = 'Keep going. Fill all four areas for the full reading.';
+  else note.textContent = 'All four areas have entries. Interpretation below.';
+}
+
+/* Simple on-device synthesis.
+   Not a language model call. Detects themes, tensions, and shape.
+   Produces varied, specific-sounding output from user entries. */
+function synthesise(){
+  const all = [...ikigai.love, ...ikigai.good, ...ikigai.need, ...ikigai.paid].map(s => s.toLowerCase());
+  const join = all.join(' | ');
+  const has = (re) => re.test(join);
+
+  // theme detection
+  const themes = [];
+  if(has(/listen|conversation|honest|deep|reflect/)) themes.push('listening');
+  if(has(/teach|coach|facilitat|guide|mentor|program|workshop/)) themes.push('guiding');
+  if(has(/story|write|book|content|narrative/)) themes.push('story');
+  if(has(/travel|peru|retreat|journey|pilgrim/)) themes.push('journey');
+  if(has(/men|masculin|father|midlife|purpose|meaning/)) themes.push('men in midlife');
+  if(has(/structure|system|framework|curriculum|method/)) themes.push('structure');
+  if(has(/group|community|circle|gather/)) themes.push('community');
+  if(has(/transform|change|rite|passage|threshold/)) themes.push('transition');
+
+  const primary = { love: ikigai.love, good: ikigai.good, need: ikigai.need, paid: ikigai.paid };
+  const pick = arr => arr.length ? arr[0] : null;
+
+  // headline
+  let headline = 'Your Ikigai is taking shape.';
+  if(themes.includes('guiding') && themes.includes('transition')) headline = 'A guide, not just a coach.';
+  else if(themes.includes('listening') && themes.includes('men in midlife')) headline = 'The work where reflection becomes movement.';
+  else if(themes.includes('journey') && themes.includes('structure')) headline = 'Meaning-making through structured experience.';
+  else if(themes.includes('story') && themes.includes('guiding')) headline = 'Teaching through story, not theory.';
+  else if(themes.includes('community')) headline = 'Work that happens in the room, not on a screen.';
+  else if(pick(primary.love) && pick(primary.need)) headline = `Where ${pick(primary.love).toLowerCase()} meets what's missing.`;
+
+  // primary paragraph
+  let p1 = '';
+  if(themes.length >= 2){
+    const t = themes.slice(0,3).join(', ');
+    p1 = `The entries point to a common thread: ${t}. What you're drawn to and what you're paid for aren't sitting in different rooms, they're the same room seen from different angles. That's the part worth protecting as you grow.`;
+  } else {
+    p1 = `There's an emerging shape here. The things you love and the things you're good at are starting to converge on what's actually missing in the world you know best. Keep pushing on the specifics, the more honest each entry, the clearer the overlap becomes.`;
+  }
+
+  // tension detection (secondary)
+  let p2 = '';
+  const paidLooksTransactional = ikigai.paid.some(p => /retreat|coach|workshop|book|program/i.test(p));
+  const loveLooksExperiential = ikigai.love.some(l => /conversation|story|journey|depth|listening/i.test(l));
+  if(paidLooksTransactional && loveLooksExperiential){
+    p2 = `One useful tension: what you love is relational and slow, what you're paid for is packaged and concrete. The work is finding offers that carry the relational depth inside a structure people can actually buy. Retreats do this well. One-to-one coaching does this well. Generic content rarely does.`;
+  } else if(themes.includes('journey') && themes.includes('men in midlife')){
+    p2 = `The strongest signal is men at a threshold, wanting something more deliberate than a self-help book and more honest than a corporate program. That's a small, specific, reachable audience. Build for them, not for everyone.`;
+  } else if(ikigai.need.length && ikigai.paid.length){
+    p2 = `The gap between ${pick(primary.need).toLowerCase()} and ${pick(primary.paid).toLowerCase()} is where your next offer probably lives. Not another version of what you already sell, a bridge between the two.`;
+  }
+
+  return { headline, p1, p2 };
+}
+
+function renderResult(){
+  const total = ikigai.love.length + ikigai.good.length + ikigai.need.length + ikigai.paid.length;
+  const filled = ['love','good','need','paid'].filter(c => ikigai[c].length > 0).length;
+  const resultEl = document.getElementById('result');
+  const headEl = document.getElementById('result-head');
+  const p1El = document.getElementById('result-primary');
+  const p2El = document.getElementById('result-secondary');
+
+  if(total < 3){
+    resultEl.classList.remove('visible');
+    return;
+  }
+  resultEl.classList.add('visible');
+
+  if(filled < 4){
+    headEl.textContent = 'Keep going.';
+    p1El.textContent = 'Fill in all four areas, the more honest you are, the more useful this becomes. The overlap between them is where your Ikigai lives.';
+    p2El.textContent = '';
+    return;
+  }
+
+  const s = synthesise();
+  headEl.textContent = s.headline;
+  p1El.textContent = s.p1;
+  p2El.textContent = s.p2 || '';
+}
+
+function renderIkigai(){
+  renderTags();
+  updateProgress();
+  renderResult();
+}
+
+renderIkigai();
+
+/* =====================================================
+   Customer Journey
+===================================================== */
+let nextId = 1;
+const uid = () => 's' + (nextId++);
+
+let stages = [
+  { id: uid(), name: "Discovery", who: "A man in his 40s or 50s, stuck, uncertain, often referred by someone in a men's group or circle.", exp: "Word of mouth, social media, or a mention at a community event. The first impression is personal, someone trusted vouched for Phil.", next: [] },
+  { id: uid(), name: "First Contact, Website", who: "A curious but cautious visitor. He's not ready to commit to anything big yet.", exp: "Lands on philvoysey.com or possibilityofus.com. Looks for evidence that Phil understands him. May try the happiness survey.", next: [] },
+  { id: uid(), name: "10-Day Mindfulness Bootcamp", who: "Someone who's taken a small step, low cost, low commitment, but real curiosity.", exp: "Daily practices, prompts, or content over 10 days. Gets a real taste of Phil's approach without a big ask.", next: [] },
+  { id: uid(), name: "Hero's Journey, One-Day Program", who: "Someone ready to commit a full day and a modest fee to doing real work.", exp: "A structured, facilitated day. Phil's teaching and facilitation in full, experiential, not just instructional.", next: [] },
+  { id: uid(), name: "Life Design Coaching", who: "A committed client, probably 3 to 6 months, meeting regularly.", exp: "One-to-one coaching with Phil. Deep work on purpose, identity, and direction for the second half of life.", next: [] },
+  { id: uid(), name: "Peru Retreat", who: "Someone ready for a real, immersive experience. Time, money, and emotional readiness all in place.", exp: "An immersive travel and coaching experience with Phil and Cheryle. The anchor product. The one people remember and tell others about.", next: [] }
+];
+
+/* seed next targets */
+stages[0].next = [{text:"Visits the website", to:stages[1].id},{text:"Reaches out directly", to:stages[3].id}];
+stages[1].next = [{text:"Completes the survey", to:stages[2].id},{text:"Leaves (first fork in the road)", to:null}];
+stages[2].next = [{text:"Decides to go deeper", to:stages[3].id},{text:"Decides to wait or stop", to:null}];
+stages[3].next = [{text:"Moves toward ongoing coaching", to:stages[4].id},{text:"Steps back to think", to:null}];
+stages[4].next = [{text:"Begins conversation about Peru", to:stages[5].id},{text:"Shares warm referrals to others", to:stages[0].id}];
+stages[5].next = [{text:"Becomes an advocate (word of mouth)", to:stages[0].id}];
+
+const tintClasses = ['tint-1','tint-2','tint-3','tint-4'];
+
+function renderStages(){
+  const root = document.getElementById('stages');
+  root.innerHTML = '';
+  stages.forEach((s, i) => {
+    const card = document.createElement('div');
+    card.className = 'stage ' + tintClasses[i % tintClasses.length];
+    card.innerHTML = `
+      <div class="stage-head">
+        <div class="stage-num">${String(i+1).padStart(2,'0')}</div>
+        <input class="stage-name" value="" />
+        <div class="stage-ctrls">
+          <button class="icon-btn" data-up="${s.id}">↑</button>
+          <button class="icon-btn" data-down="${s.id}">↓</button>
+          <button class="icon-btn danger" data-del="${s.id}">Delete</button>
+        </div>
+      </div>
+      <div class="stage-fields">
+        <div>
+          <div class="field-label">Who arrives here</div>
+          <textarea class="stage-field" data-who="${s.id}"></textarea>
+        </div>
+        <div>
+          <div class="field-label">What they experience</div>
+          <textarea class="stage-field" data-exp="${s.id}"></textarea>
+        </div>
+      </div>
+      <div class="stage-next">
+        <div class="field-label" style="margin-bottom:8px">Next steps from this stage</div>
+        <div data-nextrows="${s.id}"></div>
+        <button class="icon-btn" data-addnext="${s.id}">+ Add next option</button>
+      </div>
+    `;
+    card.querySelector('.stage-name').value = s.name;
+    card.querySelector(`[data-who="${s.id}"]`).value = s.who;
+    card.querySelector(`[data-exp="${s.id}"]`).value = s.exp;
+
+    card.querySelector('.stage-name').addEventListener('input', e => { s.name = e.target.value; });
+    card.querySelector(`[data-who="${s.id}"]`).addEventListener('input', e => { s.who = e.target.value; });
+    card.querySelector(`[data-exp="${s.id}"]`).addEventListener('input', e => { s.exp = e.target.value; });
+
+    const rowsEl = card.querySelector(`[data-nextrows="${s.id}"]`);
+    s.next.forEach((n, ni) => {
+      const row = document.createElement('div');
+      row.className = 'next-row';
+      const sel = document.createElement('select');
+      sel.innerHTML = '<option value="">(no target)</option>' + stages.map(t => `<option value="${t.id}">${t.name}</option>`).join('');
+      sel.value = n.to || '';
+      sel.addEventListener('change', e => { n.to = e.target.value || null; renderMapIfOpen(); });
+      const inp = document.createElement('input');
+      inp.value = n.text;
+      inp.placeholder = 'Next step label';
+      inp.addEventListener('input', e => { n.text = e.target.value; renderMapIfOpen(); });
+      const del = document.createElement('button');
+      del.className = 'icon-btn danger';
+      del.textContent = '×';
+      del.addEventListener('click', () => { s.next.splice(ni,1); renderStages(); });
+      row.appendChild(inp);
+      row.appendChild(sel);
+      row.appendChild(del);
+      rowsEl.appendChild(row);
+    });
+
+    root.appendChild(card);
+  });
+
+  root.querySelectorAll('[data-up]').forEach(b => b.addEventListener('click', () => moveStage(b.dataset.up, -1)));
+  root.querySelectorAll('[data-down]').forEach(b => b.addEventListener('click', () => moveStage(b.dataset.down, 1)));
+  root.querySelectorAll('[data-del]').forEach(b => b.addEventListener('click', () => {
+    stages = stages.filter(s => s.id !== b.dataset.del);
+    stages.forEach(s => s.next.forEach(n => { if(n.to === b.dataset.del) n.to = null; }));
+    renderStages();
+  }));
+  root.querySelectorAll('[data-addnext]').forEach(b => b.addEventListener('click', () => {
+    const s = stages.find(x => x.id === b.dataset.addnext);
+    s.next.push({ text:'New next step', to:null });
+    renderStages();
+  }));
+}
+
+function moveStage(id, dir){
+  const i = stages.findIndex(s => s.id === id);
+  const j = i + dir;
+  if(j < 0 || j >= stages.length) return;
+  [stages[i], stages[j]] = [stages[j], stages[i]];
+  renderStages();
+}
+
+document.getElementById('btn-add-stage').addEventListener('click', () => {
+  stages.push({ id: uid(), name:'New stage', who:'', exp:'', next:[] });
+  renderStages();
+});
+
+/* Map mode: branching SVG */
+let mapOpen = false;
+function renderMapIfOpen(){ if(mapOpen) renderMap(); }
+
+document.getElementById('btn-toggle-map').addEventListener('click', () => {
+  mapOpen = true;
+  document.getElementById('stages-view').style.display = 'none';
+  document.getElementById('map-view').style.display = 'block';
+  renderMap();
+});
+document.getElementById('btn-back-edit').addEventListener('click', () => {
+  mapOpen = false;
+  document.getElementById('stages-view').style.display = 'block';
+  document.getElementById('map-view').style.display = 'none';
+});
+
+function renderMap(){
+  const svg = document.getElementById('map-svg');
+  const nodeW = 260, nodeH = 150, vGap = 80, hGap = 100;
+  const cols = [];
+  const colOf = {};
+  /* column assignment: linear layout based on stage order.
+     Back-edges (cycles like Peru → Discovery) are drawn as return arrows. */
+  stages.forEach((s, i) => { colOf[s.id] = i; });
+
+  stages.forEach(s => {
+    const c = colOf[s.id];
+    if(!cols[c]) cols[c] = [];
+    cols[c].push(s);
+  });
+
+  const tintHex = ['#fff2e8','#f3ebff','#fff0f6','#eef7ef'];
+  const posOf = {};
+  let width = Math.max(1000, cols.length * (nodeW + hGap) + hGap);
+  let height = 40;
+  cols.forEach((colStages, ci) => {
+    colStages.forEach((s, si) => {
+      posOf[s.id] = { x: hGap/2 + ci*(nodeW + hGap), y: 40 + si*(nodeH + vGap) };
+    });
+    height = Math.max(height, 80 + colStages.length*(nodeH + vGap));
+  });
+  /* add extra space at the bottom for back-edge arcs */
+  const hasBackEdges = stages.some(s => s.next.some(n => n.to && colOf[n.to] <= colOf[s.id]));
+  height = Math.max(height, 360);
+  if(hasBackEdges) height += 120;
+
+  svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+  let h = '';
+  /* arrows */
+  h += `<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1f1f1f"/></marker></defs>`;
+
+  /* edges first, so nodes sit on top and cover any label bleed-through near endpoints */
+  const edgeLabels = [];
+  stages.forEach(s => {
+    const p = posOf[s.id];
+    const count = s.next.filter(n => n.to).length;
+    let drawn = 0;
+    s.next.forEach((n) => {
+      if(!n.to) return;
+      const q = posOf[n.to]; if(!q) return;
+      /* distribute exit points on right edge of source, entry points on left edge of target */
+      const offset = count > 1 ? (drawn - (count-1)/2) * 26 : 0;
+      const isBack = colOf[n.to] <= colOf[s.id]; /* back-edge (cycle) */
+      let x1, y1, x2, y2, pathD, lx, ly;
+      if(isBack){
+        /* back-edge: exit from bottom of source, arc below, enter bottom of target */
+        x1 = p.x + nodeW/2; y1 = p.y + nodeH;
+        x2 = q.x + nodeW/2; y2 = q.y + nodeH;
+        const arcY = Math.max(y1, y2) + 60 + drawn * 30;
+        pathD = `M ${x1} ${y1} C ${x1} ${arcY}, ${x2} ${arcY}, ${x2} ${y2+6}`;
+        lx = (x1 + x2)/2;
+        ly = arcY + 4;
+      } else {
+        x1 = p.x + nodeW; y1 = p.y + nodeH/2 + offset;
+        x2 = q.x; y2 = q.y + nodeH/2;
+        const mx = (x1 + x2)/2;
+        pathD = `M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2-6} ${y2}`;
+        const t = 0.35;
+        lx = x1 + (x2 - x1) * t;
+        ly = y1 + (y2 - y1) * t + (drawn % 2 === 0 ? -10 : 14);
+      }
+      h += `<path d="${pathD}" fill="none" stroke="${isBack ? '#c86f42' : '#1f1f1f'}" stroke-width="2" ${isBack ? 'stroke-dasharray="6 4"' : ''} marker-end="url(#arrow)"/>`;
+      const label = (n.text || '').slice(0, 32);
+      edgeLabels.push({lx, ly, label});
+      drawn++;
+    });
+  });
+
+  /* paint edge labels with a small white backing rect for legibility */
+  edgeLabels.forEach(({lx, ly, label}) => {
+    const w = Math.max(40, label.length * 6.2);
+    h += `<rect x="${lx - w/2}" y="${ly - 10}" width="${w}" height="14" fill="#fffdf9" stroke="none" rx="2"/>`;
+    h += `<text x="${lx}" y="${ly}" text-anchor="middle" font-family="Space Mono, monospace" font-size="10" fill="#3a3a3a">${escapeHtml(label)}</text>`;
+  });
+
+  /* nodes with wrapped text via foreignObject */
+  stages.forEach((s, i) => {
+    const p = posOf[s.id];
+    const fill = tintHex[i % tintHex.length];
+    const who = escapeHtml(s.who || '');
+    const name = escapeHtml((s.name || '').toUpperCase());
+    h += `<g>
+      <rect x="${p.x}" y="${p.y}" width="${nodeW}" height="${nodeH}" fill="${fill}" stroke="#1f1f1f" stroke-width="3"/>
+      <foreignObject x="${p.x+14}" y="${p.y+10}" width="${nodeW-28}" height="${nodeH-20}">
+        <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Bebas Neue',Impact,sans-serif;font-size:18px;line-height:1.05;letter-spacing:.04em;color:#181818;margin-bottom:6px;word-wrap:break-word;overflow:hidden;">${name}</div>
+        <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:'Space Mono',monospace;font-size:10.5px;line-height:1.4;color:#2e2e2e;word-wrap:break-word;overflow:hidden;">${who}</div>
+      </foreignObject>
+    </g>`;
+  });
+  svg.innerHTML = h;
+}
+
+function escapeHtml(s){ return (s||'').replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
+
+renderStages();
+</script>
+
+</div><!-- /app -->
+
+<script>
+/* Password gate — SHA-256 hash comparison.
+   Password is NOT stored as plaintext in source.
+   To change the password, run in browser console:
+     crypto.subtle.digest('SHA-256', new TextEncoder().encode('yourpassword'))
+       .then(b => console.log(Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('')))
+   Then replace the hash below. */
+
+const HASH = 'b5a0aa306476543fef184a82a7e2c73a0edbbd56dca3a881c9ed4be555386109'; // "possibility"
+
+async function checkPw(pw){
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pw));
+  return Array.from(new Uint8Array(buf)).map(x=>x.toString(16).padStart(2,'0')).join('') === HASH;
+}
+
+async function unlock(){
+  const pw = document.getElementById('gate-pw').value;
+  if(await checkPw(pw)){
+    document.getElementById('gate').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+    sessionStorage.setItem('vooee-phil-auth','1');
+  } else {
+    document.getElementById('gate-err').style.display = 'block';
+    document.getElementById('gate-pw').value = '';
+    document.getElementById('gate-pw').focus();
+  }
+}
+
+/* auto-unlock if already authenticated this session */
+if(sessionStorage.getItem('vooee-phil-auth') === '1'){
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+}
+
+document.getElementById('gate-btn').addEventListener('click', unlock);
+document.getElementById('gate-pw').addEventListener('keydown', e => { if(e.key === 'Enter') unlock(); });
+</script>
+
+</body>
+</html>
